@@ -15,7 +15,7 @@ Autor: Bryan Steven Biojó R. 1629366-3743
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
-#include <windows.h>
+// #include <windows.h>
 // #include <cstdlib>
 #include "GL/glut.h" // Añadir la palabra 'free' en esta linea si es necesario. -> #include "GL/freeglut.h"
 #include "GL/gl.h"
