@@ -1,47 +1,40 @@
 /*
 
 Nombre del archivo: main.cpp
-Fecha de creaciÛn: 11/06/2019
-Fecha de modificaciÛn: 17/06/2019
-Autor: Bryan Steven BiojÛ R. 1629366-3743
+Fecha de creaci√≥n: 11/06/2019
+Fecha de modificaci√≥n: 17/06/2019
+Autor: Bryan Steven Bioj√≥ R. 1629366-3743
 
 */
 
-/* LIBRERÕAS.
+/* LIBRER√çAS.
    Para Windows: Descomentar la linea #include <windows.h>
    Para Linux: Descomentar la linea #include <cstdlib>
 */
-
+#include <windows.h>
+// #include <cstdlib>
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
-#include <windows.h>
-// #include <cstdlib>
-#include "GL/glut.h" // AÒadir la palabra 'free' en esta linea si es necesario. -> #include "GL/freeglut.h"
+#include "GL/glut.h" // A√±adir la palabra 'free' en esta linea si es necesario -> #include "GL/freeglut.h"
 #include "GL/gl.h"
 
 using namespace std;
 
-// Variables booleanas: mostrar (show), plano (plain), eje (eje) y esfera(sphere).
 bool show = true;
+bool sphere = true;
 bool plain = true;
 bool eje = true;
-bool sphere = true;
 
-// Eje z.
-double z[] = {0.0, 2.0, 2.0, 1.0, 1.0, 1.0, 1.0, 3.0, 3.0, 4.0, 4.0, 6.0, 6.0, 7.0, 7.0, 6.0, 6.0, 3.0, 3.0,
-              5.0, 5.0, 5.0, 5.0, 3.0, 3.0, 6.0, 6.0, 7.0, 7.0, 5.0, 5.0, 3.0, 3.0, 2.0, 2.0, 0.0};
+double z[]={0.0, 2.0, 2.0, 1.0, 1.0, 1.0, 1.0, 3.0, 3.0, 4.0, 4.0, 6.0, 6.0, 7.0, 7.0, 6.0, 6.0, 3.0, 3.0,
+            5.0, 5.0, 5.0, 5.0, 3.0, 3.0, 6.0, 6.0, 7.0, 7.0, 5.0, 5.0, 3.0, 3.0, 2.0, 2.0, 0.0};
+double x[]={11.0, 9.0, 9.0, 7.0, 7.0, 6.0, 6.0, 6.0, 6.0, 7.0, 7.0, 8.0, 8.0, 7.0, 7.0, 4.0, 4.0, 3.0, 3.0,
+            1.0, 1.0, -1.0, -1.0, -3.0, -3.0, -5.0, -5.0, -7.0, -7.0, -9.0, -9.0, -8.0, -8.0, -7.0, -7.0 ,-6.0};
 
-// Eje x.
-double x[] = {11.0, 9.0, 9.0, 7.0, 7.0, 6.0, 6.0, 6.0, 6.0, 7.0, 7.0, 8.0, 8.0, 7.0, 7.0, 4.0, 4.0, 3.0, 3.0,
-              1.0, 1.0, -1.0, -1.0, -3.0, -3.0, -5.0, -5.0, -7.0, -7.0, -9.0, -9.0, -8.0, -8.0, -7.0, -7.0 ,-6.0};
-
-// Variables GLfloat iniciales.
 GLfloat x0 = 0.0;
 GLfloat y0 = 0.0;
 GLfloat z0 = 20.0;
 
-// MÈtodo para dibujar la tortuga.
 void drawTurtle(void) {
     if (show) {
         glColor3f(1.0, 0.0, 0.0);
@@ -57,7 +50,6 @@ void drawTurtle(void) {
     }
 }
 
-// MÈtodo para dibujar la esfera de la tortuga.
 void SphereTurtle(void) {
     glPushMatrix();
     glColor3f(0.0, 0.0, 0.0);
@@ -95,7 +87,6 @@ void SphereTurtle(void) {
     glPopMatrix();
 }
 
-// MÈtodo para dibujar el escenario inicial.
 void drawMain(void){
     glClearColor(1.0, 1.0, 1.0, 0.0);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -107,21 +98,21 @@ void drawMain(void){
         SphereTurtle();
 
     if (eje) {
-        // Se pinta el eje rojo (R).
+        //pinta el eje rojo
         glColor3f(1.0 ,0.0, 0.0);
         glBegin(GL_LINES);
         glVertex3f(800.0, 0.0, 0.0);
         glVertex3f(-800.0, 0.0, 0.0);
         glEnd();
 
-        //Se pinta el eje verde (G).
+        //pinta el eje verde
         glColor3f(0.0, 1.0, 0.0);
         glBegin(GL_LINES);
         glVertex3f(0.0, 800.0, 0.0);
         glVertex3f(0.0, -800.0, 0.0);
         glEnd();
 
-        //Se pinta el eje azul (B).
+        //pinta el eje azul
         glColor3f(0.0, 0.0, 1.0);
         glBegin(GL_LINES);
         glVertex3f(0.0, 0.0, 800.0);
@@ -131,7 +122,6 @@ void drawMain(void){
     glutSwapBuffers();
 }
 
-// MÈtodo para remodelar.
 void reshape(int width, int height) {
     if (width < height) {
         glViewport(0, 0, width, width);
@@ -147,7 +137,6 @@ void reshape(int width, int height) {
     gluLookAt(x0, y0, z0, 0.0 , 0.0, 0.0, 0.0, 1.0, 0.0);
 }
 
-// MÈtodo para controlar la tortuga mediante el teclado.
 void keyboard(unsigned char key, int x, int y) {
     switch (key) {
         case 'h':
@@ -206,21 +195,21 @@ void keyboard(unsigned char key, int x, int y) {
             gluLookAt(x0, y0, z0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
             break;
 
-        case 'l': // Left.
+        case 'r':
             x0 += 0.1;
             glMatrixMode(GL_MODELVIEW);
             glLoadIdentity();
             gluLookAt(x0, y0, z0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
             break;
 
-        case 'r': // Right
+        case 'l':
             x0 -= 0.1;
             glMatrixMode(GL_MODELVIEW);
             glLoadIdentity();
             gluLookAt(x0, y0, z0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
             break;
 
-        case 'q': // Close. Cerrar la ventana siempre presionando la tecla 'q' en el teclado y no directamente.
+        case 'q':
 
         case 27:
             exit(0);
@@ -229,7 +218,6 @@ void keyboard(unsigned char key, int x, int y) {
     glutPostRedisplay();
 }
 
-// MÈtodo main.
 int main(int argc, char** argv) {
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_RGB | GLUT_DEPTH | GLUT_DOUBLE);
