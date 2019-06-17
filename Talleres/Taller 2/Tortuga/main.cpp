@@ -15,9 +15,9 @@ Autor: Bryan Steven Biojó R. 1629366-3743
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
-#include <windows.h>
+// #include <windows.h>
 // #include <cstdlib>
-#include "GL/glut.h" // Añadir la palabra 'free' en esta linea si es necesario -> #include "GL/freeglut.h"
+#include "GL/glut.h" // Añadir la palabra 'free' en esta linea si es necesario. -> #include "GL/freeglut.h"
 #include "GL/gl.h"
 
 using namespace std;
@@ -27,10 +27,10 @@ bool sphere = true;
 bool plain = true;
 bool eje = true;
 
-double z[]={0.0, 2.0, 2.0, 1.0, 1.0, 1.0, 1.0, 3.0, 3.0, 4.0, 4.0, 6.0, 6.0, 7.0, 7.0, 6.0, 6.0, 3.0, 3.0,
-            5.0, 5.0, 5.0, 5.0, 3.0, 3.0, 6.0, 6.0, 7.0, 7.0, 5.0, 5.0, 3.0, 3.0, 2.0, 2.0, 0.0};
-double x[]={11.0, 9.0, 9.0, 7.0, 7.0, 6.0, 6.0, 6.0, 6.0, 7.0, 7.0, 8.0, 8.0, 7.0, 7.0, 4.0, 4.0, 3.0, 3.0,
-            1.0, 1.0, -1.0, -1.0, -3.0, -3.0, -5.0, -5.0, -7.0, -7.0, -9.0, -9.0, -8.0, -8.0, -7.0, -7.0 ,-6.0};
+double z[] = {0.0, 2.0, 2.0, 1.0, 1.0, 1.0, 1.0, 3.0, 3.0, 4.0, 4.0, 6.0, 6.0, 7.0, 7.0, 6.0, 6.0, 3.0, 3.0,
+              5.0, 5.0, 5.0, 5.0, 3.0, 3.0, 6.0, 6.0, 7.0, 7.0, 5.0, 5.0, 3.0, 3.0, 2.0, 2.0, 0.0};
+double x[] = {11.0, 9.0, 9.0, 7.0, 7.0, 6.0, 6.0, 6.0, 6.0, 7.0, 7.0, 8.0, 8.0, 7.0, 7.0, 4.0, 4.0, 3.0, 3.0,
+              1.0, 1.0, -1.0, -1.0, -3.0, -3.0, -5.0, -5.0, -7.0, -7.0, -9.0, -9.0, -8.0, -8.0, -7.0, -7.0 ,-6.0};
 
 GLfloat x0 = 0.0;
 GLfloat y0 = 0.0;
